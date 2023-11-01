@@ -34,7 +34,7 @@ jobs:
           path: docs/
 
   deploy_docs:
-    name: Build Docs
+    name: Deploy Docs
     runs-on: ubuntu-latest
     needs: build_docs
     permissions:
