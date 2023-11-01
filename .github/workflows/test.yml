@@ -25,7 +25,7 @@ jobs:
         run: bun run build
 
       - name: Build Examples
-        run: run build:examples
+        run: bun build:examples
 
       - name: Test Examples
         run: bun test:examples
