@@ -12,10 +12,13 @@
     "build": "bun build:pic",
     "docs": "typedoc --options ./packages/pic/typedoc.json",
     "build:pic": "bun run ./packages/pic/build.ts && tsc -p ./packages/pic/tsconfig.json",
+    "create:examples": "bun create:counter && bun create:clock",
     "build:examples": "bun build:counter && bun build:clock",
     "test:examples": "bun test:counter && bun test:clock",
+    "create:counter": "dfx canister create counter",
     "build:counter": "dfx generate counter && dfx build counter",
     "test:counter": "jest -c ./examples/counter/tests/jest.config.ts",
+    "create:clock": "dfx canister create clock",
     "build:clock": "dfx generate clock && dfx build clock",
     "test:clock": "jest -c ./examples/clock/tests/jest.config.ts"
   },
