@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "build": "bun build:pic",
     "docs": "typedoc --options ./packages/pic/typedoc.json",
     "build:pic": "bun run ./packages/pic/build.ts && tsc -p ./packages/pic/tsconfig.json",
