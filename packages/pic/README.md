@@ -1,6 +1,6 @@
-# Pocket IC
+# Pic JS
 
-`@hadronous/pic` is a library for interacting with a local instance of `pocket-ic` from TypeScript.
+Pic JS is a library for interacting with a local instance of `pocket-ic` from TypeScript.
 
 The `pocket-ic` is a canister testing platform for the [Internet Computer](https://internetcomputer.org/). It is a standalone executable that can be used to test canisters locally, without the need to deploy them to a full replica.
 
@@ -51,12 +51,12 @@ await pic.tearDown();
 
 ## API Docs
 
-More detailed documentation is available in the [API docs](#).
+More detailed documentation is available in the [API docs](https://hadronous.github.io/pic-js/).
 
 ## Examples
 
 All examples are written in [TypeScript](https://www.typescriptlang.org/) with [Jest](https://jestjs.io/) as the test runner,
 but `@hadronous/pic` can be used with JavaScript and any other testing runner, such as [NodeJS](https://nodejs.org/dist/latest-v20.x/docs/api/test.html), [bun](https://bun.sh/docs/cli/test) or [Mocha](https://mochajs.org/).
 
-- The [Counter](#) example demonstrates how to work with the `@hadronous/pic` in the simplest way.
-- The [Clock](#) example demonstrates how to work with the replica time and canister timers with `@hadronous/pic` as well as checking for canister existence and cycle management.
+- The [Counter](https://github.com/hadronous/pic-js/tree/main/examples/counter) example demonstrates how to work with the `@hadronous/pic` in the simplest way.
+- The [Clock](https://github.com/hadronous/pic-js/tree/main/examples/clock) example demonstrates how to work with the replica time and canister timers with `@hadronous/pic` as well as checking for canister existence and cycle management.
