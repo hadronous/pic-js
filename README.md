@@ -10,15 +10,13 @@ Other languages available include [Python](https://github.com/dfinity/pocketic-p
 
 More detailed documentation is available in the [API docs](https://hadronous.github.io/pic-js/).
 
-## Initial Setup
+## Running Examples
 
-Install dependencies:
-
-```bash
-bun i
-```
-
-## Examples
+- Install [bun](https://bun.sh/)
+- Install dependencies:
+  ```bash
+  bun i
+  ```
 
 ### [Counter](https://github.com/hadronous/pic-js/tree/main/examples/counter)
 
@@ -71,3 +69,15 @@ Run the counter tests:
 ```shell
 bun test:clock
 ```
+
+## Contributing
+
+## Setup
+
+- Install [bun](https://bun.sh/)
+- Install [commitizen](https://commitizen-tools.github.io/commitizen/)
+- Install [pre-commit](https://pre-commit.com/)
+- Install dependencies:
+  ```bash
+  bun i
+  ```

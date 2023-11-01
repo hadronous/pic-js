@@ -15,8 +15,15 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - uses: ./.github/actions/setup-bun
 
+      - uses: ./.github/actions/setup-commitizen
+
       - name: Check Formatting
         run: bun format:check
+
+      - name: Check Commit Messages
+        run: cz check --rev-range HEAD
