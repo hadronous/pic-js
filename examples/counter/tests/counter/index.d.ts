@@ -1,5 +1,5 @@
 import { IDL } from '@dfinity/candid';
-import { Actor } from 'pocketic';
+import { Actor } from '@hadronous/pic';
 import { _SERVICE } from '../../declarations/counter.did';
 
 export declare const idlFactory: IDL.InterfaceFactory;

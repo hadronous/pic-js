@@ -1,8 +1,6 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": [
-    "src/index.ts"
-  ],
+  "entryPoints": ["src/index.ts"],
   "tsconfig": "./tsconfig.json",
   "readme": "./README.md",
   "out": "../../docs",
@@ -17,19 +15,13 @@
   "excludeExternals": true,
   "categorizeByGroup": false,
   "sourceLinkExternal": true,
-  "categoryOrder": [
-    "API",
-    "Types",
-    "*"
-  ],
-  "sort": [
-    "source-order"
-  ],
+  "categoryOrder": ["API", "Types", "*"],
+  "sort": ["source-order"],
   "navigation": {
     "includeCategories": true,
-    "includeGroups": false,
+    "includeGroups": false
   },
   "searchCategoryBoosts": {
-    "API": 1.5,
+    "API": 1.5
   }
 }

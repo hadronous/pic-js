@@ -1,6 +1,6 @@
 import { resolve } from 'node:path';
 import { Principal } from '@dfinity/principal';
-import { PocketIc } from '@dintegral/pocketic';
+import { PocketIc } from '@hadronous/pic';
 import { ClockActor, idlFactory, ClockService } from '../clock';
 
 const WASM_PATH = resolve(

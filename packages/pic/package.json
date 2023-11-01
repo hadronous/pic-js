@@ -1,6 +1,6 @@
 {
-  "name": "@dintegral/pocketic",
-  "version": "0.0.1",
+  "name": "@hadronous/pic",
+  "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "peerDependencies": {

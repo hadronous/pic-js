@@ -1,4 +1,4 @@
-# PocketIC
+# Pic JS
 
 ## Initial Setup
 

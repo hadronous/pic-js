@@ -1,6 +1,6 @@
 {
   "name": "clock-tests",
   "devDependencies": {
-    "pocketic": "workspace:*"
+    "@hadronous/pic": "workspace:*"
   }
 }

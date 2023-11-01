@@ -1,18 +1,18 @@
 {
-  "name": "pocketic-ts",
+  "name": "pic-js",
   "private": true,
   "workspaces": [
-    "packages/pocketic",
+    "packages/pic",
     "examples/counter/tests",
     "examples/clock/tests"
   ],
   "scripts": {
     "format": "prettier --write .",
-    "build": "bun build:pocketic",
-    "docs": "typedoc --options ./packages/pocketic/typedoc.json",
-    "build:pocketic": "bun run ./packages/pocketic/build.ts && tsc -p ./packages/pocketic/tsconfig.json",
+    "build": "bun build:pic",
+    "docs": "typedoc --options ./packages/pic/typedoc.json",
+    "build:pic": "bun run ./packages/pic/build.ts && tsc -p ./packages/pic/tsconfig.json",
     "build:examples": "bun build:counter && bun build:clock",
-    "text:examples": "bun test:counter && bun test:clock",
+    "test:examples": "bun test:counter && bun test:clock",
     "build:counter": "dfx generate counter && dfx build counter",
     "test:counter": "jest -c ./examples/counter/tests/jest.config.ts",
     "build:clock": "dfx generate clock && dfx build clock",

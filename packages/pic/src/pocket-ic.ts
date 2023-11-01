@@ -37,7 +37,7 @@ export interface CanisterFixture<T = ActorInterface> {
  * @example
  * The easist way to use PocketIC is to use {@link setupCanister} convenience method:
  * ```ts
- * import { PocketIc } from '@dintegral/pocketic';
+ * import { PocketIc } from '@hadronous/pic';
  * import { _SERVICE, idlFactory } from '../declarations';
  *
  * const wasmPath = resolve('..', '..', 'canister.wasm');
@@ -53,7 +53,7 @@ export interface CanisterFixture<T = ActorInterface> {
  * If more control is needed, then the {@link createCanister}, {@link installCode} and
  * {@link createActor} methods can be used directly:
  * ```ts
- * import { PocketIc } from '@dintegral/pocketic';
+ * import { PocketIc } from '@hadronous/pic';
  * import { _SERVICE, idlFactory } from '../declarations';
  *
  * const wasmPath = resolve('..', '..', 'canister.wasm');
@@ -82,7 +82,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const pic = await PocketIc.create();
    * ```
@@ -104,7 +104,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const url = 'http://localhost:8080';
    * const pic = await PocketIc.createFromUrl(url);
@@ -138,7 +138,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    * import { _SERVICE, idlFactory } from '../declarations';
    *
    * const wasmPath = resolve('..', '..', 'canister.wasm');
@@ -173,7 +173,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const pic = await PocketIc.create();
    * const canisterId = await pic.createCanister();
@@ -215,7 +215,7 @@ export class PocketIc {
    * @example
    * ```ts
    * import { Principal } from '@dfinity/principal';
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    * import { resolve } from 'node:path';
    *
    * const canisterId = Principal.fromUint8Array(new Uint8Array([0]));
@@ -270,7 +270,7 @@ export class PocketIc {
    * @example
    * ```ts
    * import { Principal } from '@dfinity/principal';
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    * import { _SERVICE, idlFactory } from '../declarations';
    *
    * const canisterId = Principal.fromUint8Array(new Uint8Array([0]));
@@ -297,7 +297,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const pic = await PocketIc.create();
    * await pic.tearDown();
@@ -312,7 +312,7 @@ export class PocketIc {
    * Make the IC produce and progress by one block.
    *
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const pic = await PocketIc.create();
    * await pic.tick();
@@ -329,7 +329,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const pic = await PocketIc.create();
    *
@@ -345,7 +345,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const pic = await PocketIc.create();
    *
@@ -364,7 +364,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const pic = await PocketIc.create();
    *
@@ -384,7 +384,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const pic = await PocketIc.create();
    *
@@ -406,7 +406,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const pic = await PocketIc.create();
    * const rootKey = await pic.fetchRootKey();
@@ -423,7 +423,7 @@ export class PocketIc {
    *
    * @example
    * ```ts
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const canisterId = Principal.fromUint8Array(new Uint8Array([0]));
    *
@@ -444,7 +444,7 @@ export class PocketIc {
    * @example
    * ```ts
    * import { Principal } from '@dfinity/principal';
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const canisterId = Principal.fromUint8Array(new Uint8Array([0]));
    *
@@ -466,7 +466,7 @@ export class PocketIc {
    * @example
    * ```ts
    * import { Principal } from '@dfinity/principal';
-   * import { PocketIc } from '@dintegral/pocketic';
+   * import { PocketIc } from '@hadronous/pic';
    *
    * const canisterId = Principal.fromUint8Array(new Uint8Array([0]));
    *

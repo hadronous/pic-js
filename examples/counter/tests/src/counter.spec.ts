@@ -1,5 +1,5 @@
 import { resolve } from 'node:path';
-import { PocketIc } from '@dintegral/pocketic';
+import { PocketIc } from '@hadronous/pic';
 import { CounterActor, idlFactory, CounterService } from '../counter';
 
 const WASM_PATH = resolve(

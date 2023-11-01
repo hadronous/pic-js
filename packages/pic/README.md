@@ -1,6 +1,6 @@
 # Pocket IC
 
-`@dintegral/pocketic` is a library for interacting with a local instance of `pocket-ic` from TypeScript.
+`@hadronous/pic` is a library for interacting with a local instance of `pocket-ic` from TypeScript.
 
 The `pocket-ic` is a canister testing platform for the [Internet Computer](https://internetcomputer.org/). It is a standalone executable that can be used to test canisters locally, without the need to deploy them to a full replica.
 
@@ -9,7 +9,7 @@ Other languages available include [Python](https://github.com/dfinity/pocketic-p
 ## Installation
 
 ```shell
-npm i -D @dintegral/pocketic
+npm i -D @hadronous/pic
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ npm i -D @dintegral/pocketic
 The easist way to use PocketIC is to use `setupCanister` convenience method:
 
 ```ts
-import { PocketIc } from '@dintegral/pocketic';
+import { PocketIc } from '@hadronous/pic';
 import { _SERVICE, idlFactory } from '../declarations';
 
 const wasmPath = resolve('..', '..', 'canister.wasm');
@@ -33,7 +33,7 @@ await pic.tearDown();
 If more control is needed, then the `createCanister`, `installCode` and `createActor` methods can be used directly:
 
 ```ts
-import { PocketIc } from '@dintegral/pocketic';
+import { PocketIc } from '@hadronous/pic';
 import { _SERVICE, idlFactory } from '../declarations';
 
 const wasmPath = resolve('..', '..', 'canister.wasm');
@@ -56,7 +56,7 @@ More detailed documentation is available in the [API docs](#).
 ## Examples
 
 All examples are written in [TypeScript](https://www.typescriptlang.org/) with [Jest](https://jestjs.io/) as the test runner,
-but `@dintegral/pocketic` can be used with JavaScript and any other testing runner, such as [NodeJS](https://nodejs.org/dist/latest-v20.x/docs/api/test.html), [bun](https://bun.sh/docs/cli/test) or [Mocha](https://mochajs.org/).
+but `@hadronous/pic` can be used with JavaScript and any other testing runner, such as [NodeJS](https://nodejs.org/dist/latest-v20.x/docs/api/test.html), [bun](https://bun.sh/docs/cli/test) or [Mocha](https://mochajs.org/).
 
-- The [Counter](#) example demonstrates how to work with the `@dintegral/pocketic` in the simplest way.
-- The [Clock](#) example demonstrates how to work with the replica time and canister timers with `@dintegral/pocketic` as well as checking for canister existence and cycle management.
+- The [Counter](#) example demonstrates how to work with the `@hadronous/pic` in the simplest way.
+- The [Clock](#) example demonstrates how to work with the replica time and canister timers with `@hadronous/pic` as well as checking for canister existence and cycle management.
