@@ -1,0 +1,6 @@
+{
+  "name": "clock-tests",
+  "devDependencies": {
+    "pocketic": "workspace:*"
+  }
+}

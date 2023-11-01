@@ -1,0 +1,24 @@
+{
+  "canisters": {
+    "counter": {
+      "main": "examples/counter/src/main.mo",
+      "type": "motoko",
+      "optimize": "cycles",
+      "declarations": {
+        "bindings": ["js", "ts"],
+        "output": "examples/counter/declarations"
+      }
+    },
+    "clock": {
+      "main": "examples/clock/src/main.mo",
+      "type": "motoko",
+      "optimize": "cycles",
+      "declarations": {
+        "bindings": ["js", "ts"],
+        "output": "examples/clock/declarations"
+      }
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

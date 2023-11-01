@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    // compilation
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["ESNext"],
+
+    // resolution
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+
+    // type checking
+    "strict": true,
+    "allowJs": false,
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "types": ["bun-types"]
+  }
+}

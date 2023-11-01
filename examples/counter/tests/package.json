@@ -1,0 +1,6 @@
+{
+  "name": "counter-tests",
+  "devDependencies": {
+    "pocketic": "workspace:*"
+  }
+}

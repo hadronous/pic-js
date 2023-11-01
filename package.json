@@ -1,0 +1,33 @@
+{
+  "name": "pocketic-ts",
+  "private": true,
+  "workspaces": [
+    "packages/pocketic",
+    "examples/counter/tests",
+    "examples/clock/tests"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "build": "bun build:pocketic",
+    "docs": "typedoc --options ./packages/pocketic/typedoc.json",
+    "build:pocketic": "bun run ./packages/pocketic/build.ts && tsc -p ./packages/pocketic/tsconfig.json",
+    "build:examples": "bun build:counter && bun build:clock",
+    "text:examples": "bun test:counter && bun test:clock",
+    "build:counter": "dfx generate counter && dfx build counter",
+    "test:counter": "jest -c ./examples/counter/tests/jest.config.ts",
+    "build:clock": "dfx generate clock && dfx build clock",
+    "test:clock": "jest -c ./examples/clock/tests/jest.config.ts"
+  },
+  "devDependencies": {
+    "@dfinity/candid": "^0.19.3",
+    "@dfinity/principal": "^0.19.3",
+    "@types/jest": "^29.5.6",
+    "@types/node": "^20.8.9",
+    "bun-types": "^1.0.6",
+    "jest": "^29.7.0",
+    "prettier": "^3.0.3",
+    "ts-jest": "^29.1.1",
+    "typedoc": "^0.25.3",
+    "typescript": "^5.2.2"
+  }
+}
