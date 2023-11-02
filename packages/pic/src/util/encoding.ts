@@ -12,7 +12,7 @@ export function base64Decode(payload: string): ArrayBuffer {
   return toArrayBuffer(Buffer.from(payload, 'base64'));
 }
 
-export function toArrayBuffer(buffer: Buffer | Uint8Array): ArrayBuffer {
+function toArrayBuffer(buffer: Buffer | Uint8Array): ArrayBuffer {
   const arrayBuffer = buffer.buffer.slice(
     buffer.byteOffset,
     buffer.byteOffset + buffer.byteLength,

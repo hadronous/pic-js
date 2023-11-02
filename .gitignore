@@ -3,6 +3,7 @@
 /node_modules/
 
 /packages/pic/dist/
+/packages/pic/pocket-ic
 /examples/clock/declarations/
 /examples/clock/tests/node_modules/
 /examples/counter/declarations/

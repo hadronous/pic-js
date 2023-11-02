@@ -2,13 +2,8 @@
   "extends": "../../tsconfig.json",
   "include": ["src"],
   "compilerOptions": {
-    "emitDeclarationOnly": true,
+    "outDir": "dist",
     "declaration": true,
-    "declarationDir": "dist"
-  },
-  "references": [
-    {
-      "path": "./tsconfig.build.json"
-    }
-  ]
+    "sourceMap": true
+  }
 }

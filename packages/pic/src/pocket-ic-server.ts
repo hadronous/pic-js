@@ -1,8 +1,7 @@
 import { ChildProcess, spawn } from 'node:child_process';
+import { resolve } from 'node:path';
 import { BinNotFoundError, BinTimeoutError } from './error';
 import { exists, readFileAsString, tmpFile, poll } from './util';
-
-const POCKET_IC_BIN = 'POCKET_IC_BIN';
 
 export class PocketIcServer {
   private readonly url: string;
@@ -50,7 +49,7 @@ export class PocketIcServer {
   }
 
   private static getBinPath(): string {
-    return process.env[POCKET_IC_BIN] ?? './pocket-ic';
+    return resolve(__dirname, '..', 'pocket-ic');
   }
 
   private static async assertBinExists(binPath: string): Promise<void> {

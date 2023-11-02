@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "scripts": {
+    "postinstall": "node ./postinstall.mjs"
+  },
   "peerDependencies": {
     "@dfinity/principal": "^0.19.3",
     "@dfinity/candid": "^0.19.3"

@@ -1,5 +1,3 @@
-import { isLinux } from './util';
-
 export class PlatformMismatchError extends Error {
   constructor() {
     super(
@@ -10,19 +8,8 @@ export class PlatformMismatchError extends Error {
 
 export class BinNotFoundError extends Error {
   constructor(picBinPath: string) {
-    const currentWorkingDirectory = process.cwd();
-    const platform = isLinux() ? 'x86_64-linux' : 'x86_64-darwin';
-
     super(
-      `Could not find the PocketIC binary.
-
-The PocketIC binary could not be found at ${picBinPath}. Please specify the path to the binary with the POCKET_IC_BIN environment variable, \
-or place it in your current working directory (you are running PocketIC from ${currentWorkingDirectory}).
-
-Run the following commands to get the binary:
-  curl -sLO https://download.dfinity.systems/ic/307d5847c1d2fe1f5e19181c7d0fcec23f4658b3/openssl-static-binaries/${platform}/pocket-ic.gz
-  gzip -d pocket-ic.gz
-  chmod +x pocket-ic`,
+      `Could not find the PocketIC binary. The PocketIC binary could not be found at ${picBinPath}. Please try install @hadronous/pic again.`,
     );
   }
 }

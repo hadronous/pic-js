@@ -1,6 +1,6 @@
 import { Principal } from '@dfinity/principal';
 import { base64Decode, base64Encode, base64EncodePrincipal } from './util';
-import { HttpClient } from './http-client';
+import { HeadersInit, HttpClient } from './http-client';
 
 export interface CreateInstanceSuccessResponse {
   Created: {

@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     // compilation
-    "module": "esnext",
-    "target": "esnext",
+    "module": "NodeNext",
+    "target": "ESNext",
     "lib": ["ESNext"],
 
     // resolution
-    "moduleResolution": "bundler",
+    "moduleResolution": "NodeNext",
     "moduleDetection": "force",
 
     // type checking
@@ -20,6 +20,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["bun-types"]
+    "types": ["node"]
   }
 }

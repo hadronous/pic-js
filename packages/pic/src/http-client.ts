@@ -1,3 +1,5 @@
+export type HeadersInit = Record<string, string>;
+
 export interface GetOptions {
   headers?: HeadersInit;
 }
@@ -18,7 +20,7 @@ export class HttpClient {
       headers: { ...headers, 'Content-Type': 'application/json' },
     });
 
-    return await response.json();
+    return (await response.json()) as R;
   }
 
   public static async post<P, R>(
@@ -34,7 +36,7 @@ export class HttpClient {
       headers: { ...headers, 'Content-Type': 'application/json' },
     });
 
-    return await response.json();
+    return (await response.json()) as R;
   }
 
   public static async delete(url: string): Promise<void> {
