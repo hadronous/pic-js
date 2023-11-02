@@ -10,69 +10,13 @@ Other languages available include [Python](https://github.com/dfinity/pocketic-p
 
 More detailed documentation is available in the [API docs](https://hadronous.github.io/pic-js/).
 
-## Running Examples
+## Examples
 
-- Install [bun](https://bun.sh/)
-- Install dependencies:
-  ```bash
-  bun i
-  ```
-
-### [Counter](https://github.com/hadronous/pic-js/tree/main/examples/counter)
-
-Start DFX:
-
-```shell
-dfx start --background
-```
-
-Create a new canister:
-
-```shell
-dfx canister create counter
-```
-
-Build the counter canister:
-
-```shell
-bun build:counter
-```
-
-Run the counter tests:
-
-```shell
-bun test:counter
-```
-
-### [Clock](https://github.com/hadronous/pic-js/tree/main/examples/clock)
-
-Start DFX:
-
-```shell
-dfx start --background
-```
-
-Create a new canister:
-
-```shell
-dfx canister create clock
-```
-
-Build the counter canister:
-
-```shell
-bun build:clock
-```
-
-Run the counter tests:
-
-```shell
-bun test:clock
-```
+Examples are available in the [examples](./examples/README.md) directory.
 
 ## Contributing
 
-## Setup
+### Setup
 
 - Install [bun](https://bun.sh/)
 - Install [commitizen](https://commitizen-tools.github.io/commitizen/)

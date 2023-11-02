@@ -23,5 +23,9 @@
   },
   "searchCategoryBoosts": {
     "API": 1.5
+  },
+  "navigationLinks": {
+    "GitHub": "https://github.com/hadronous/pic-js",
+    "Examples": "https://github.com/hadronous/pic-js/tree/main/examples/README.md"
   }
 }
