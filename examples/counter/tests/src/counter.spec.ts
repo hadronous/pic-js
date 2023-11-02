@@ -116,6 +116,6 @@ describe('Counter', () => {
     await pic.reinstallCode(canisterId, WASM_PATH);
     const postReinstallCount = await actor.get();
 
-    expect(preReinstallCount).not.toEqual(postReinstallCount);
+    expect(postReinstallCount).not.toEqual(preReinstallCount);
   });
 });

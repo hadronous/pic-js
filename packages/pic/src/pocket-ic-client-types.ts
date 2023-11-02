@@ -64,3 +64,16 @@ export interface AddCanisterCyclesRequest {
 export interface AddCanisterCyclesResponse {
   cycles: number;
 }
+
+export interface SetStableMemoryRequest {
+  canister_id: string;
+  blob_id: number[];
+}
+
+export interface GetStableMemoryRequest {
+  canister_id: string;
+}
+
+export interface GetStableMemoryResponse {
+  blob: Uint8Array;
+}

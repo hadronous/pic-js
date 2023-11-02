@@ -530,6 +530,8 @@ export class PocketIc {
    * @param canisterId The Principal of the canister to check.
    * @returns `true` if the canister exists, `false` otherwise.
    *
+   * @see [Principal](https://agent-js.icp.xyz/principal/classes/Principal.html)
+   *
    * @example
    * ```ts
    * import { PocketIc } from '@hadronous/pic';
@@ -549,6 +551,8 @@ export class PocketIc {
    *
    * @param canisterId The Principal of the canister to check.
    * @returns The current cycles balance of the canister.
+   *
+   * @see [Principal](https://agent-js.icp.xyz/principal/classes/Principal.html)
    *
    * @example
    * ```ts
@@ -572,6 +576,8 @@ export class PocketIc {
    * @param amount The amount of cycles to add.
    * @returns The new cycle balance of the canister.
    *
+   * @see [Principal](https://agent-js.icp.xyz/principal/classes/Principal.html)
+   *
    * @example
    * ```ts
    * import { Principal } from '@dfinity/principal';
@@ -588,5 +594,57 @@ export class PocketIc {
     amount: number,
   ): Promise<number> {
     return await this.client.addCycles(canisterId, amount);
+  }
+
+  /**
+   * Set the stable memory of a given canister.
+   *
+   * @param canisterId The Principal of the canister to set the stable memory of.
+   * @param stableMemory A blob containing the stable memory to set.
+   *
+   * @see [Principal](https://agent-js.icp.xyz/principal/classes/Principal.html)
+   *
+   * @example
+   * ```ts
+   * import { Principal } from '@dfinity/principal';
+   * import { PocketIc } from '@hadronous/pic';
+   *
+   * const canisterId = Principal.fromUint8Array(new Uint8Array([0]));
+   * const stableMemory = new Uint8Array([0, 1, 2, 3, 4]);
+   *
+   * const pic = await PocketIc.create();
+   * await pic.setStableMemory(canisterId, stableMemory);
+   * ```
+   */
+  public async setStableMemory(
+    canisterId: Principal,
+    stableMemory: Uint8Array,
+  ): Promise<void> {
+    const blobId = await this.client.uploadBlob(stableMemory);
+
+    await this.client.setStableMemory(canisterId, blobId);
+  }
+
+  /**
+   * Get the stable memory of a given canister.
+   *
+   * @param canisterId The Principal of the canister to get the stable memory of.
+   * @returns A blob containing the canister's stable memory.
+   *
+   * @see [Principal](https://agent-js.icp.xyz/principal/classes/Principal.html)
+   *
+   * @example
+   * ```ts
+   * import { Principal } from '@dfinity/principal';
+   * import { PocketIc } from '@hadronous/pic';
+   *
+   * const canisterId = Principal.fromUint8Array(new Uint8Array([0]));
+   *
+   * const pic = await PocketIc.create();
+   * const stableMemory = await pic.getStableMemory(canisterId);
+   * ```
+   */
+  public async getStableMemory(canisterId: Principal): Promise<Uint8Array> {
+    return await this.client.getStableMemory(canisterId);
   }
 }
