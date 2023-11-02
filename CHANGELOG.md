@@ -1,3 +1,9 @@
+## Unreleased
+
+### Feat
+
+- add method to set identity on actor
+
 ## 0.1.0 (2023-11-02)
 
 ### Feat
