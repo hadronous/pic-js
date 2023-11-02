@@ -12,6 +12,12 @@ Other languages available include [Python](https://github.com/dfinity/pocketic-p
 npm i -D @hadronous/pic
 ```
 
+Install peer dependencies if needed:
+
+```shell
+npm i -D @dfinity/{agent,candid,identity,principal}
+```
+
 ## Usage
 
 The easist way to use PocketIC is to use `setupCanister` convenience method:

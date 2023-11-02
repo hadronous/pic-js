@@ -57,3 +57,4 @@ jobs:
           bodyFile: 'RELEASE_NOTES.md'
           tag: '${{ env.version }}'
           commit: 'main'
+          makeLatest: true
