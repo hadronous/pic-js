@@ -23,6 +23,7 @@
     "test:clock": "jest -c ./examples/clock/tests/jest.config.ts"
   },
   "devDependencies": {
+    "@dfinity/agent": "^0.19.3",
     "@dfinity/candid": "^0.19.3",
     "@dfinity/principal": "^0.19.3",
     "@types/jest": "^29.5.6",

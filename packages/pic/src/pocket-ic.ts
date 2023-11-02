@@ -43,7 +43,8 @@ export interface CanisterFixture<T = ActorInterface> {
  * const wasmPath = resolve('..', '..', 'canister.wasm');
  *
  * const pic = await PocketIc.create();
- * const actor = await pic.setupCanister<_SERVICE>(idlFactory, wasmPath);
+ * const fixture = await pic.setupCanister<_SERVICE>(idlFactory, wasmPath);
+ * const { actor } = fixture;
  *
  * // perform tests...
  *
@@ -144,7 +145,8 @@ export class PocketIc {
    * const wasmPath = resolve('..', '..', 'canister.wasm');
    *
    * const pic = await PocketIc.create();
-   * const actor = await pic.setupCanister<_SERVICE>(idlFactory, wasmPath);
+   * const fixture = await pic.setupCanister<_SERVICE>(idlFactory, wasmPath);
+   * const { actor } = fixture;
    * ```
    */
   public async setupCanister<T = ActorInterface>(
@@ -276,7 +278,8 @@ export class PocketIc {
    * const canisterId = Principal.fromUint8Array(new Uint8Array([0]));
    *
    * const pic = await PocketIc.create();
-   * const actor = pic.createActor<_SERVICE>(idlFactory, canisterId);
+   * const fixture = await pic.setupCanister<_SERVICE>(idlFactory, wasmPath);
+   * const { actor } = fixture;
    * ```
    */
   public createActor<T = ActorInterface>(

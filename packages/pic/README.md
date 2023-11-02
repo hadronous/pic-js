@@ -23,7 +23,8 @@ import { _SERVICE, idlFactory } from '../declarations';
 const wasmPath = resolve('..', '..', 'canister.wasm');
 
 const pic = await PocketIc.create();
-const actor = await pic.setupCanister<_SERVICE>(idlFactory, wasmPath);
+const fixture = await pic.setupCanister<_SERVICE>(idlFactory, wasmPath);
+const { actor } = fixture;
 
 // perform tests...
 
@@ -51,7 +52,7 @@ await pic.tearDown();
 
 ## API Docs
 
-More detailed documentation is available in the [API docs](https://hadronous.github.io/pic-js/).
+More detailed documentation is available in the [API docs](https://hadronous.github.io/pic-js/). The best place to start is with the [PocketIc](https://hadronous.github.io/pic-js/classes/PocketIc.html) class and then move onto the [Actor](https://hadronous.github.io/pic-js/interfaces/Actor.html) class.
 
 ## Examples
 
