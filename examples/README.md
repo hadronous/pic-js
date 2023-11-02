@@ -3,9 +3,6 @@
 All examples are written in [TypeScript](https://www.typescriptlang.org/) with [Jest](https://jestjs.io/) as the test runner,
 but `@hadronous/pic` can be used with JavaScript and any other testing runner, such as [NodeJS](https://nodejs.org/dist/latest-v20.x/docs/api/test.html), [bun](https://bun.sh/docs/cli/test) or [Mocha](https://mochajs.org/).
 
-- The [Counter](https://github.com/hadronous/pic-js/tree/main/examples/counter) example demonstrates how to work with the `@hadronous/pic` in the simplest way.
-- The [Clock](https://github.com/hadronous/pic-js/tree/main/examples/clock) example demonstrates how to work with the replica time and canister timers with `@hadronous/pic` as well as checking for canister existence and cycle management.
-
 ## Setup
 
 - Install [bun](https://bun.sh/)
@@ -15,6 +12,8 @@ but `@hadronous/pic` can be used with JavaScript and any other testing runner, s
   ```
 
 ## [Counter](https://github.com/hadronous/pic-js/tree/main/examples/counter)
+
+This example demonstrates how to work with a simple canister as well as canister upgrades and WASM reinstallation.
 
 Start DFX:
 
@@ -41,6 +40,8 @@ bun test:counter
 ```
 
 ## [Clock](https://github.com/hadronous/pic-js/tree/main/examples/clock)
+
+This example demonstrates how to work with the replica's system time, canister timers as well as checking for canister existence and cycle management.
 
 Start DFX:
 

@@ -1,4 +1,5 @@
 import { resolve } from 'node:path';
+import { Principal } from '@dfinity/principal';
 import { PocketIc } from '@hadronous/pic';
 import { CounterActor, idlFactory, CounterService } from '../counter';
 
@@ -18,6 +19,7 @@ const WASM_PATH = resolve(
 describe('Counter', () => {
   let pic: PocketIc;
   let actor: CounterActor;
+  let canisterId: Principal;
 
   beforeEach(async () => {
     pic = await PocketIc.create();
@@ -26,6 +28,7 @@ describe('Counter', () => {
       WASM_PATH,
     );
     actor = fixture.actor;
+    canisterId = fixture.canisterId;
   });
 
   afterEach(async () => {
@@ -94,5 +97,25 @@ describe('Counter', () => {
 
     expect(initialCount).toEqual(0n);
     await expect(actor.dec()).rejects.toThrow('Natural subtraction underflow');
+  });
+
+  it('should upgrade the canister', async () => {
+    await actor.inc();
+    const preUpgradeCount = await actor.get();
+
+    await pic.upgradeCanister(canisterId, WASM_PATH);
+    const postUpgradeCount = await actor.get();
+
+    expect(preUpgradeCount).toEqual(postUpgradeCount);
+  });
+
+  it('should reinstall the canister', async () => {
+    await actor.inc();
+    const preReinstallCount = await actor.get();
+
+    await pic.reinstallCode(canisterId, WASM_PATH);
+    const postReinstallCount = await actor.get();
+
+    expect(preReinstallCount).not.toEqual(postReinstallCount);
   });
 });

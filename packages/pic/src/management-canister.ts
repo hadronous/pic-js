@@ -1,19 +1,7 @@
 import { IDL } from '@dfinity/candid';
 import { Principal } from '@dfinity/principal';
 
-export const CanisterSettings = IDL.Opt(
-  IDL.Record({
-    controllers: IDL.Opt(IDL.Vec(IDL.Principal)),
-    compute_allocation: IDL.Nat,
-    memory_allocation: IDL.Nat,
-    freezing_threshold: IDL.Nat,
-  }),
-);
-
-const ProvisionalCreateCanisterWithCyclesRequest = IDL.Record({
-  settings: CanisterSettings,
-  amount: IDL.Opt(IDL.Nat),
-});
+export const MANAGEMENT_CANISTER_ID = Principal.fromText('aaaaa-aa');
 
 export interface CanisterSettings {
   controllers: Principal[];
@@ -22,35 +10,46 @@ export interface CanisterSettings {
   freezing_threshold: [] | [bigint];
 }
 
-export interface ProvisionalCreateCanisterWithCyclesRequest {
+export const CanisterSettings = IDL.Opt(
+  IDL.Record({
+    controllers: IDL.Opt(IDL.Vec(IDL.Principal)),
+    compute_allocation: IDL.Opt(IDL.Nat),
+    memory_allocation: IDL.Opt(IDL.Nat),
+    freezing_threshold: IDL.Opt(IDL.Nat),
+  }),
+);
+
+export interface CreateCanisterRequest {
   settings: [] | [CanisterSettings];
   amount: [] | [bigint];
 }
 
-export function encodeCreateCanisterWithRequest(
-  arg: ProvisionalCreateCanisterWithCyclesRequest,
+const CreateCanisterRequest = IDL.Record({
+  settings: CanisterSettings,
+  amount: IDL.Opt(IDL.Nat),
+});
+
+export function encodeCreateCanisterRequest(
+  arg: CreateCanisterRequest,
 ): ArrayBuffer {
-  return IDL.encode([ProvisionalCreateCanisterWithCyclesRequest], [arg]);
+  return IDL.encode([CreateCanisterRequest], [arg]);
 }
 
-const ProvisionalCreateCanisterWithCyclesResponse = IDL.Record({
+const CreateCanisterResponse = IDL.Record({
   canister_id: IDL.Principal,
 });
 
-export interface ProvisionalCreateCanisterWithCyclesResponse {
+export interface CreateCanisterResponse {
   canister_id: Principal;
 }
 
 export function decodeCreateCanisterResponse(
   arg: ArrayBuffer,
-): ProvisionalCreateCanisterWithCyclesResponse {
-  const [payload] = IDL.decode(
-    [ProvisionalCreateCanisterWithCyclesResponse],
-    arg,
-  );
+): CreateCanisterResponse {
+  const [payload] = IDL.decode([CreateCanisterResponse], arg);
 
   // [TODO] - type check?
-  return payload as unknown as ProvisionalCreateCanisterWithCyclesResponse;
+  return payload as unknown as CreateCanisterResponse;
 }
 
 const InstallCodeRequest = IDL.Record({

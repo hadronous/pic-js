@@ -1,73 +1,18 @@
 import { Principal } from '@dfinity/principal';
 import { base64Decode, base64Encode, base64EncodePrincipal } from './util';
 import { HeadersInit, HttpClient } from './http-client';
-
-export interface CreateInstanceSuccessResponse {
-  Created: {
-    instance_id: number;
-  };
-}
-export interface CreateInstanceErrorResponse {
-  Error: {
-    message: string;
-  };
-}
-export type CreateInstanceResponse =
-  | CreateInstanceSuccessResponse
-  | CreateInstanceErrorResponse;
-
-export interface CanisterCallRequest {
-  sender: string;
-  canister_id: string;
-  method: string;
-  payload: string;
-}
-
-export interface CanisterCallSuccessResponse {
-  Ok: {
-    Reply: string;
-  };
-}
-
-export interface CanisterCallErrorResponse {
-  Err: {
-    code: string;
-    description: string;
-  };
-}
-
-export type CanisterCallResponse =
-  | CanisterCallSuccessResponse
-  | CanisterCallErrorResponse;
-
-export interface GetTimeResponse {
-  nanos_since_epoch: number;
-}
-
-export interface SetTimeRequest {
-  nanos_since_epoch: number;
-}
-
-export interface CheckCanisterExistsRequest {
-  canister_id: string;
-}
-
-export interface GetCanisterCyclesBalanceRequest {
-  canister_id: string;
-}
-
-export interface GetCanisterCyclesBalanceResponse {
-  cycles: number;
-}
-
-export interface AddCanisterCyclesRequest {
-  canister_id: string;
-  amount: number;
-}
-
-export interface AddCanisterCyclesResponse {
-  cycles: number;
-}
+import {
+  AddCanisterCyclesRequest,
+  AddCanisterCyclesResponse,
+  CanisterCallRequest,
+  CanisterCallResponse,
+  CheckCanisterExistsRequest,
+  CreateInstanceResponse,
+  GetCanisterCyclesBalanceRequest,
+  GetCanisterCyclesBalanceResponse,
+  GetTimeResponse,
+  SetTimeRequest,
+} from './pocket-ic-client-types';
 
 const PROCESSING_TIME_HEADER = 'processing-timeout-ms';
 const PROCESSING_TIME_VALUE_MS = 300_000;
