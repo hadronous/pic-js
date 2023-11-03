@@ -1,8 +1,10 @@
+## Unreleased
+
 ## 0.2.0-b1 (2023-11-02)
 
 ### Feat
 
-- add deterministic and random identity generation functions
+- add canister code management functions
 
 ## 0.2.0-b0 (2023-11-02)
 
