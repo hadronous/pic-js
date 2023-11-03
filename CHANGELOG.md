@@ -1,8 +1,9 @@
-## Unreleased
+## 0.2.0-b2 (2023-11-03)
 
 ### Feat
 
 - add functions to get and set stable memory
+- add canister code management functions
 
 ## 0.2.0-b1 (2023-11-02)
 
