@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Feat
+
+- add functions to get and set stable memory
+
 ## 0.2.0-b1 (2023-11-02)
 
 ### Feat
