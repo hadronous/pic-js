@@ -1,6 +1,7 @@
 /.dfx/
 /docs/
 /node_modules/
+/target/
 
 /packages/pic/dist/
 /packages/pic/pocket-ic
@@ -8,6 +9,8 @@
 /examples/clock/tests/node_modules/
 /examples/counter/declarations/
 /examples/counter/tests/node_modules/
+/examples/todo/declarations/
+/examples/todo/tests/node_modules/
 
 .env
 .DS_Store

@@ -17,6 +17,16 @@
         "bindings": ["js", "ts"],
         "output": "examples/clock/declarations"
       }
+    },
+    "todo": {
+      "type": "rust",
+      "candid": "examples/todo/todo.did",
+      "optimize": "cycles",
+      "package": "todo",
+      "declarations": {
+        "bindings": ["js", "ts"],
+        "output": "examples/todo/declarations"
+      }
     }
   },
   "output_env_file": ".env",

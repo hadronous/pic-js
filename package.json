@@ -4,7 +4,8 @@
   "workspaces": [
     "packages/pic",
     "examples/counter/tests",
-    "examples/clock/tests"
+    "examples/clock/tests",
+    "examples/todo/tests"
   ],
   "scripts": {
     "format": "prettier --write .",
@@ -12,15 +13,18 @@
     "build": "bun build:pic",
     "docs": "typedoc --options ./packages/pic/typedoc.json",
     "build:pic": "tsc -p ./packages/pic/tsconfig.json",
-    "create:examples": "bun create:counter && bun create:clock",
-    "build:examples": "bun build:counter && bun build:clock",
-    "test:examples": "bun test:counter && bun test:clock",
+    "create:examples": "bun create:counter && bun create:clock && bun create:todo",
+    "build:examples": "bun build:counter && bun build:clock && bun build:todo",
+    "test:examples": "bun test:counter && bun test:clock && bun test:todo",
     "create:counter": "dfx canister create counter",
     "build:counter": "dfx generate counter && dfx build counter",
     "test:counter": "jest -c ./examples/counter/tests/jest.config.ts",
     "create:clock": "dfx canister create clock",
     "build:clock": "dfx generate clock && dfx build clock",
-    "test:clock": "jest -c ./examples/clock/tests/jest.config.ts"
+    "test:clock": "jest -c ./examples/clock/tests/jest.config.ts",
+    "create:todo": "dfx canister create todo",
+    "build:todo": "dfx generate todo && dfx build todo",
+    "test:todo": "jest -c ./examples/todo/tests/jest.config.ts"
   },
   "devDependencies": {
     "@dfinity/agent": "^0.19.3",
