@@ -83,25 +83,17 @@ fn get_todos() -> GetTodoResponse {
                 (StorablePrincipal(calling_principal), TodoId::MIN)
                     ..(StorablePrincipal(calling_principal), TodoId::MAX),
             )
-            // .take_while(|((owner, _), _)| owner.0 == calling_principal)
             .map(|((_, id), _)| id)
             .collect::<Vec<_>>()
     });
 
     let owned_todos = TODOS.with(|todos| {
-        todos
-            .borrow()
-            .iter()
-            .filter_map(|(id, todo)| owned_todo_ids.contains(&id).then_some(todo))
-            .collect::<Vec<_>>()
+        let todos = todos.borrow();
 
-        // alternate implementation,
-        // need to check which is faster
-        //
-        // owned_todo_ids
-        //     .iter()
-        //     .filter_map(|id| todos.get(id))
-        //     .collect::<Vec<_>>()
+        owned_todo_ids
+            .iter()
+            .filter_map(|id| todos.get(id))
+            .collect::<Vec<_>>()
     });
 
     GetTodoResponse { todos: owned_todos }
