@@ -2,6 +2,7 @@
 
 ### Fix
 
+- set processing time header on set_stable_memory header
 - get stable memory function returning incorrect type
 
 ## 0.2.0-b2 (2023-11-03)
