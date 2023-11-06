@@ -22,8 +22,14 @@ jobs:
 
       - uses: ./.github/actions/setup-commitizen
 
-      - name: Check Formatting
+      - name: Check TypeScript Formatting
         run: bun format:check
+
+      - name: Check Rust Linting
+        run: cargo clippy
+
+      - name: Check Rust formatting
+        run: cargo fmt -- --check
 
       - name: Check Commit Messages
         run: cz check --rev-range HEAD
