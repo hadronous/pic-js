@@ -29,7 +29,7 @@ import {
 
 const PROCESSING_TIME_HEADER = 'processing-timeout-ms';
 const PROCESSING_TIME_VALUE_MS = 300_000;
-const PROCESSING_HEADERS: HeadersInit = {
+const PROCESSING_HEADER: HeadersInit = {
   [PROCESSING_TIME_HEADER]: PROCESSING_TIME_VALUE_MS.toString(),
 };
 
@@ -139,7 +139,10 @@ export class PocketIcClient {
       `${this.instanceUrl}/update/set_stable_memory`,
       {
         method: 'POST',
-        headers: JSON_HEADER,
+        headers: {
+          ...JSON_HEADER,
+          ...PROCESSING_HEADER,
+        },
         body: JSON.stringify(request),
       },
     );
@@ -217,13 +220,13 @@ export class PocketIcClient {
   private async post<P, R>(endpoint: string, body?: P): Promise<R> {
     return await HttpClient.post<P, R>(`${this.instanceUrl}${endpoint}`, {
       body,
-      headers: PROCESSING_HEADERS,
+      headers: PROCESSING_HEADER,
     });
   }
 
   private async get<R>(endpoint: string): Promise<R> {
     return await HttpClient.get<R>(`${this.instanceUrl}${endpoint}`, {
-      headers: PROCESSING_HEADERS,
+      headers: PROCESSING_HEADER,
     });
   }
 }
