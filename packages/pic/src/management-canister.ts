@@ -31,8 +31,8 @@ const CreateCanisterRequest = IDL.Record({
 
 export function encodeCreateCanisterRequest(
   arg: CreateCanisterRequest,
-): ArrayBuffer {
-  return IDL.encode([CreateCanisterRequest], [arg]);
+): Uint8Array {
+  return new Uint8Array(IDL.encode([CreateCanisterRequest], [arg]));
 }
 
 const CreateCanisterResponse = IDL.Record({
@@ -44,7 +44,7 @@ export interface CreateCanisterResponse {
 }
 
 export function decodeCreateCanisterResponse(
-  arg: ArrayBuffer,
+  arg: Uint8Array,
 ): CreateCanisterResponse {
   const [payload] = IDL.decode([CreateCanisterResponse], arg);
 
@@ -70,6 +70,6 @@ export interface InstallCodeRequest {
   canister_id: Principal;
 }
 
-export function encodeInstallCodeRequest(arg: InstallCodeRequest): ArrayBuffer {
-  return IDL.encode([InstallCodeRequest], [arg]);
+export function encodeInstallCodeRequest(arg: InstallCodeRequest): Uint8Array {
+  return new Uint8Array(IDL.encode([InstallCodeRequest], [arg]));
 }

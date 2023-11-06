@@ -233,7 +233,7 @@ describe('Todo', () => {
       });
     });
 
-    it.skip('should survive a reset and stable memory restore', async () => {
+    it('should survive a reset and stable memory restore', async () => {
       actor.setIdentity(alice);
       const aliceCreateResponse = await actor.create_todo({
         text: 'Learn Rust',

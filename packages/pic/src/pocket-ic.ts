@@ -520,7 +520,7 @@ export class PocketIc {
    * const pic = await PocketIc.create();
    * const rootKey = await pic.fetchRootKey();
    */
-  public async fetchRootKey(): Promise<ArrayBuffer> {
+  public async fetchRootKey(): Promise<Uint8Array> {
     return await this.client.fetchRootKey();
   }
 

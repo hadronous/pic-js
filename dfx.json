@@ -24,7 +24,7 @@
       "optimize": "cycles",
       "package": "todo",
       "declarations": {
-        "bindings": ["js", "ts"],
+        "bindings": ["js", "ts", "did"],
         "output": "examples/todo/declarations"
       }
     }

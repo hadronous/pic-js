@@ -1,6 +1,16 @@
 import { Principal } from '@dfinity/principal';
-import { base64Decode, base64Encode, base64EncodePrincipal } from './util';
-import { HeadersInit, HttpClient, ResponseRead } from './http-client';
+import {
+  base64Decode,
+  base64Encode,
+  base64EncodePrincipal,
+  hexDecode,
+} from './util';
+import {
+  HeadersInit,
+  HttpClient,
+  JSON_HEADER,
+  handleFetchError,
+} from './http-client';
 import {
   AddCanisterCyclesRequest,
   AddCanisterCyclesResponse,
@@ -19,6 +29,9 @@ import {
 
 const PROCESSING_TIME_HEADER = 'processing-timeout-ms';
 const PROCESSING_TIME_VALUE_MS = 300_000;
+const PROCESSING_HEADERS: HeadersInit = {
+  [PROCESSING_TIME_HEADER]: PROCESSING_TIME_VALUE_MS.toString(),
+};
 
 export class PocketIcClient {
   private constructor(
@@ -45,38 +58,40 @@ export class PocketIcClient {
   }
 
   public async deleteInstance(): Promise<void> {
-    await HttpClient.delete(`${this.instanceUrl}`);
+    await fetch(this.instanceUrl, {
+      method: 'DELETE',
+    });
   }
 
   public async tick(): Promise<void> {
-    return await this.instancePost<void, void>('/update/tick');
+    return await this.post<void, void>('/update/tick');
   }
 
   public async getTime(): Promise<number> {
-    const response = await this.instanceGet<GetTimeResponse>('/read/get_time');
+    const response = await this.get<GetTimeResponse>('/read/get_time');
 
     return response.nanos_since_epoch / 1_000_000;
   }
 
   public async setTime(time: number): Promise<void> {
-    await this.instancePost<SetTimeRequest, void>('/update/set_time', {
+    await this.post<SetTimeRequest, void>('/update/set_time', {
       nanos_since_epoch: time * 1_000_000,
     });
   }
 
-  public async fetchRootKey(): Promise<ArrayBuffer> {
-    return await this.instancePost<null, ArrayBuffer>('/read/root_key');
+  public async fetchRootKey(): Promise<Uint8Array> {
+    return await this.post<null, Uint8Array>('/read/root_key');
   }
 
   public async checkCanisterExists(canisterId: Principal): Promise<boolean> {
-    return await this.instancePost<CheckCanisterExistsRequest, boolean>(
+    return await this.post<CheckCanisterExistsRequest, boolean>(
       '/read/canister_exists',
       { canister_id: base64EncodePrincipal(canisterId) },
     );
   }
 
   public async getCyclesBalance(canisterId: Principal): Promise<number> {
-    const response = await this.instancePost<
+    const response = await this.post<
       GetCanisterCyclesBalanceRequest,
       GetCanisterCyclesBalanceResponse
     >('/read/get_cycles', {
@@ -90,7 +105,7 @@ export class PocketIcClient {
     canisterId: Principal,
     amount: number,
   ): Promise<number> {
-    const response = await this.instancePost<
+    const response = await this.post<
       AddCanisterCyclesRequest,
       AddCanisterCyclesResponse
     >('/update/add_cycles', {
@@ -102,48 +117,53 @@ export class PocketIcClient {
   }
 
   public async uploadBlob(blob: Uint8Array): Promise<Uint8Array> {
-    const response = await this.serverPost<Uint8Array, string>(
-      '/blobstore',
-      blob,
-      'text',
-    );
+    const response = await fetch(`${this.serverUrl}/blobstore`, {
+      method: 'POST',
+      body: blob,
+    });
 
-    const hex = Buffer.from(response, 'hex');
-
-    return new Uint8Array(hex);
+    const responseText = await response.text();
+    return new Uint8Array(hexDecode(responseText));
   }
 
   public async setStableMemory(
     canisterId: Principal,
     blobId: Uint8Array,
   ): Promise<void> {
-    await this.instancePost<SetStableMemoryRequest, void>(
-      '/update/set_stable_memory',
+    const request: SetStableMemoryRequest = {
+      canister_id: base64EncodePrincipal(canisterId),
+      blob_id: Array.from(blobId),
+    };
+
+    const response = await fetch(
+      `${this.instanceUrl}/update/set_stable_memory`,
       {
-        canister_id: base64EncodePrincipal(canisterId),
-        blob_id: Array.from(blobId),
+        method: 'POST',
+        headers: JSON_HEADER,
+        body: JSON.stringify(request),
       },
-      'none',
     );
+
+    handleFetchError(response);
   }
 
   public async getStableMemory(canisterId: Principal): Promise<Uint8Array> {
-    const response = await this.instancePost<
+    const response = await this.post<
       GetStableMemoryRequest,
       GetStableMemoryResponse
     >('/read/get_stable_memory', {
       canister_id: base64EncodePrincipal(canisterId),
     });
 
-    return response.blob;
+    return base64Decode(response.blob);
   }
 
   public async updateCall(
     canisterId: Principal,
     sender: Principal,
     method: string,
-    payload: ArrayBuffer,
-  ): Promise<ArrayBuffer> {
+    payload: Uint8Array,
+  ): Promise<Uint8Array> {
     return await this.canisterCall(
       '/update/execute_ingress_message',
       canisterId,
@@ -157,8 +177,8 @@ export class PocketIcClient {
     canisterId: Principal,
     sender: Principal,
     method: string,
-    payload: ArrayBuffer,
-  ): Promise<ArrayBuffer> {
+    payload: Uint8Array,
+  ): Promise<Uint8Array> {
     return await this.canisterCall(
       '/read/query',
       canisterId,
@@ -173,8 +193,8 @@ export class PocketIcClient {
     canisterId: Principal,
     sender: Principal,
     method: string,
-    payload: ArrayBuffer,
-  ): Promise<ArrayBuffer> {
+    payload: Uint8Array,
+  ): Promise<Uint8Array> {
     let rawCanisterCall: CanisterCallRequest = {
       sender: base64EncodePrincipal(sender),
       canister_id: base64EncodePrincipal(canisterId),
@@ -182,10 +202,10 @@ export class PocketIcClient {
       payload: base64Encode(payload),
     };
 
-    const response = await this.instancePost<
-      CanisterCallRequest,
-      CanisterCallResponse
-    >(endpoint, rawCanisterCall);
+    const response = await this.post<CanisterCallRequest, CanisterCallResponse>(
+      endpoint,
+      rawCanisterCall,
+    );
 
     if ('Err' in response) {
       throw new Error(response.Err.description);
@@ -194,40 +214,16 @@ export class PocketIcClient {
     return base64Decode(response.Ok.Reply);
   }
 
-  private async instancePost<P, R>(
-    endpoint: string,
-    body?: P,
-    read?: ResponseRead,
-  ): Promise<R> {
-    const headers: HeadersInit = {
-      [PROCESSING_TIME_HEADER]: PROCESSING_TIME_VALUE_MS.toString(),
-    };
-
+  private async post<P, R>(endpoint: string, body?: P): Promise<R> {
     return await HttpClient.post<P, R>(`${this.instanceUrl}${endpoint}`, {
       body,
-      headers,
-      read,
+      headers: PROCESSING_HEADERS,
     });
   }
 
-  private async serverPost<P, R>(
-    endpoint: string,
-    body?: P,
-    read?: ResponseRead,
-  ): Promise<R> {
-    return await HttpClient.post<P, R>(`${this.serverUrl}${endpoint}`, {
-      body,
-      read,
-    });
-  }
-
-  private async instanceGet<R>(endpoint: string): Promise<R> {
-    const headers: HeadersInit = {
-      [PROCESSING_TIME_HEADER]: PROCESSING_TIME_VALUE_MS.toString(),
-    };
-
+  private async get<R>(endpoint: string): Promise<R> {
     return await HttpClient.get<R>(`${this.instanceUrl}${endpoint}`, {
-      headers,
+      headers: PROCESSING_HEADERS,
     });
   }
 }

@@ -1,4 +1,4 @@
-import { IDL } from '@dfinity/candid';
+import { IDL, JsonValue } from '@dfinity/candid';
 import { Principal } from '@dfinity/principal';
 import { Identity } from '@dfinity/agent';
 import { PocketIcClient } from './pocket-ic-client';
@@ -97,7 +97,10 @@ export function createActorClass<T = ActorInterface>(
   const service = interfaceFactory({ IDL });
   let sender: Principal | null = null;
 
-  function decodeReturnValue(types: IDL.Type[], msg: ArrayBufferLike) {
+  function decodeReturnValue(
+    types: IDL.Type[],
+    msg: ArrayBufferLike,
+  ): JsonValue | undefined {
     const returnValues = IDL.decode(types, msg as ArrayBuffer);
 
     switch (returnValues.length) {
@@ -140,7 +143,7 @@ export function createActorClass<T = ActorInterface>(
         canisterId,
         sender,
         methodName,
-        arg,
+        new Uint8Array(arg),
       );
 
       return decodeReturnValue(func.retTypes, response);
@@ -159,7 +162,7 @@ export function createActorClass<T = ActorInterface>(
         canisterId,
         sender,
         methodName,
-        arg,
+        new Uint8Array(arg),
       );
 
       return decodeReturnValue(func.retTypes, response);

@@ -75,5 +75,5 @@ export interface GetStableMemoryRequest {
 }
 
 export interface GetStableMemoryResponse {
-  blob: Uint8Array;
+  blob: string;
 }
