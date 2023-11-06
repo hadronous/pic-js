@@ -27,13 +27,13 @@ jobs:
         run: dfx start --background
 
       - name: Create Example Canisters
-        run: pnpm create:examples
+        run: pnpm create:counter && pnpm create:clock && pnpm create:todo
 
       - name: Build Examples
-        run: pnpm build:examples
+        run: pnpm build:counter && pnpm build:clock && pnpm build:todo
 
       - name: Stop DFX
         run: dfx stop
 
       - name: Test Examples
-        run: pnpm test:examples
+        run: pnpm test:counter && pnpm test:clock && pnpm test:todo
