@@ -3,7 +3,8 @@
 [![NPM](https://badge.fury.io/js/@hadronous%2Fpic.svg)](https://badge.fury.io/js/@hadronous%2Fpic)
 ![Dependencies](https://img.shields.io/librariesio/release/npm/%40hadronous/pic)
 
-[![Test](https://github.com/hadronous/pic-js/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/hadronous/pic-js/actions/workflows/test.yml)
+[![Test (NodeJS)](https://github.com/hadronous/pic-js/actions/workflows/test-nodejs.yml/badge.svg)](https://github.com/hadronous/pic-js/actions/workflows/test-nodejs.yml)
+[![Test (Bun)](https://github.com/hadronous/pic-js/actions/workflows/test-bun.yml/badge.svg)](https://github.com/hadronous/pic-js/actions/workflows/test-bun.yml)
 [![Lint](https://github.com/hadronous/pic-js/actions/workflows/lint.yml/badge.svg)](https://github.com/hadronous/pic-js/actions/workflows/lint.yml)
 [![CodeQL](https://github.com/hadronous/pic-js/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/hadronous/pic-js/actions/workflows/github-code-scanning/codeql)
 
