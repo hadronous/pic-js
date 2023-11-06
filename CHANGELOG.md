@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Fix
+
+- get stable memory function returning incorrect type
+
 ## 0.2.0-b2 (2023-11-03)
 
 ### Feat
