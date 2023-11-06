@@ -6,6 +6,7 @@
 
 /packages/pic/dist/
 /examples/clock/declarations/
+/packages/pic/node_modules/
 /examples/clock/tests/node_modules/
 /examples/counter/declarations/
 /examples/counter/tests/node_modules/

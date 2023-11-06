@@ -1,0 +1,5 @@
+packages:
+  - 'packages/pic'
+  - 'examples/counter/tests'
+  - 'examples/clock/tests'
+  - 'examples/todo/tests'

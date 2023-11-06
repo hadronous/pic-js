@@ -5,7 +5,8 @@ but `@hadronous/pic` can be used with JavaScript and any other testing runner, s
 
 ## Setup
 
-- Install [bun](https://bun.sh/)
+- Install [bun](https://bun.sh/) OR install [pnpm](https://pnpm.io/installation)
+  - Replace `bun` with `pnpm` in any subsequent commands if you choose to use `pnpm`.
 - Install dependencies:
 
   ```bash
