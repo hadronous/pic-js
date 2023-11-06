@@ -1,6 +1,7 @@
 {
   "name": "pic-js",
   "private": true,
+  "packageManager": "pnpm@8.7.1",
   "workspaces": [
     "packages/pic",
     "examples/counter/tests",
