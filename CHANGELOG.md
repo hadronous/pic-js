@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Fix
+
+- client refuses to start on MacOS ARM chips that are also running NodeJS on ARM architecture
+
 ## 0.2.0 (2023-11-06)
 
 ## 0.2.0-b3 (2023-11-06)
