@@ -1,3 +1,9 @@
+## Unreleased
+
+### Fix
+
+- update file permission for pocket-ic executable in case package manager has moved it
+
 ## 0.2.1-b0 (2023-12-14)
 
 ### Fix
