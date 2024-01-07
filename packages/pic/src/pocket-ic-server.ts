@@ -1,5 +1,6 @@
 import { ChildProcess, spawn } from 'node:child_process';
 import { resolve } from 'node:path';
+import { chmodSync } from 'node:fs';
 import {
   BinNotFoundError,
   BinStartError,
@@ -78,5 +79,7 @@ export class PocketIcServer {
     if (!binExists) {
       throw new BinNotFoundError(binPath);
     }
+
+    chmodSync(binPath, 0o700);
   }
 }
