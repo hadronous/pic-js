@@ -1,3 +1,9 @@
+## Unreleased
+
+### Feat
+
+- update versions of @dfinity dependencies
+
 ## 0.2.1-b1 (2024-01-07)
 
 ### Fix
