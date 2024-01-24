@@ -1,3 +1,11 @@
+## Unreleased
+
+### Feat
+
+- accept ArrayBufferLike instead of Uint8Array to be more compatible with agent-js & co libraries
+- throw a more helpful error is devs interact with a pic instance after tearing it down
+- add ability to tick multiple times
+
 ## 0.2.1 (2024-01-21)
 
 ## 0.2.1-b2 (2024-01-11)
