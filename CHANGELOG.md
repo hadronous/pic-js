@@ -6,6 +6,10 @@
 - throw a more helpful error is devs interact with a pic instance after tearing it down
 - add ability to tick multiple times
 
+### Refactor
+
+- use auto-generated idl for management canister
+
 ## 0.2.1 (2024-01-21)
 
 ## 0.2.1-b2 (2024-01-11)
