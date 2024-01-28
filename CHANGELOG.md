@@ -6,6 +6,11 @@
 - throw a more helpful error is devs interact with a pic instance after tearing it down
 - add ability to tick multiple times
 
+### Fix
+
+- updated dependencies on dfinity packages
+- updated dependencies on dfinity packages
+
 ### Refactor
 
 - use auto-generated idl for management canister
