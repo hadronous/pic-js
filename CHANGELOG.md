@@ -2,6 +2,7 @@
 
 ### Feat
 
+- add update canister settings method
 - upgrade to pocket-ic v3
 - upgrade to pic server 2.0.1
 
