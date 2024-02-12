@@ -1,3 +1,9 @@
+## Unreleased
+
+### Fix
+
+- propogate sender principal correctly when setting up canister
+
 ## 0.3.0-b2 (2024-02-12)
 
 ## 0.3.0-b1 (2024-02-12)
