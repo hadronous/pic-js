@@ -1,3 +1,9 @@
+## Unreleased
+
+### Fix
+
+- canister settings encoding
+
 ## 0.3.0-b3 (2024-02-12)
 
 ### Fix
