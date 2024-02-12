@@ -2,6 +2,7 @@
 
 ### Feat
 
+- upgrade to pocket-ic v3
 - upgrade to pic server 2.0.1
 
 ## 0.3.0-b0 (2024-01-28)
