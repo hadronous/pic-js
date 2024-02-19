@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Feat
+
+- add canister stop and start methods
+
 ## 0.3.0 (2024-02-12)
 
 ## 0.3.0-b4 (2024-02-12)
