@@ -1,3 +1,9 @@
+## Unreleased
+
+### Feat
+
+- update agent-js and pocket-ic dependencies
+
 ## 0.4.0 (2024-02-19)
 
 ### Feat
