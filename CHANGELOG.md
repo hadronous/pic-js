@@ -1,3 +1,9 @@
+## Unreleased
+
+### Feat
+
+- add support for nns subnet init
+
 ## 0.5.0 (2024-02-24)
 
 ### Feat
