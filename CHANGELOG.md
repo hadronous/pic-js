@@ -1,3 +1,9 @@
+## Unreleased
+
+### Fix
+
+- removed fetchRootKey in favor of getPubKey, which accepts a subnet Id
+
 ## 0.6.0 (2024-03-03)
 
 ### Feat
