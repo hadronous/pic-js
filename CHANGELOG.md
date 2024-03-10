@@ -1,3 +1,10 @@
+## Unreleased
+
+### Fix
+
+- build docs only when release_latest is successful
+- move docs build and deployment to release workflow
+
 ## 0.6.1-b0 (2024-03-07)
 
 ### Fix
