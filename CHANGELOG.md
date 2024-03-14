@@ -2,6 +2,7 @@
 
 ### Fix
 
+- unable to start picjs server on macos
 - build docs only when release_latest is successful
 - move docs build and deployment to release workflow
 
