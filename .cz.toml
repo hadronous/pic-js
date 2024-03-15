@@ -3,5 +3,5 @@ name = "cz_conventional_commits"
 tag_format = "$version"
 update_changelog_on_bump = true
 version_scheme = "semver"
-version = "0.6.1-b0"
+version = "0.6.1-b1"
 version_files = ["packages/pic/package.json"]
