@@ -1,3 +1,9 @@
+## Unreleased
+
+### Feat
+
+- enable direct canister calls
+
 ## 0.6.1 (2024-03-15)
 
 ## 0.6.1-b1 (2024-03-15)
