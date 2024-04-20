@@ -1,3 +1,9 @@
+## Unreleased
+
+### Feat
+
+- separate pic server management from instance management
+
 ## 0.7.0 (2024-03-17)
 
 ## 0.7.0-b0 (2024-03-17)
