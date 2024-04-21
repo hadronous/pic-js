@@ -2,6 +2,7 @@
 
 ### Feat
 
+- add logging support
 - separate pic server management from instance management
 
 ## 0.7.0 (2024-03-17)
