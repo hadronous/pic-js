@@ -1,3 +1,9 @@
+## Unreleased
+
+### Feat
+
+- add http2 support
+
 ## 0.8.0-b0 (2024-04-21)
 
 ### Feat
