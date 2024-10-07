@@ -2,6 +2,7 @@
 
 ### Feat
 
+- upgrade to server v6
 - upgrade pic server to v5
 
 ## 0.9.0 (2024-07-01)
