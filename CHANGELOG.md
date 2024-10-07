@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Feat
+
+- upgrade pic server to v5
+
 ## 0.9.0 (2024-07-01)
 
 ## 0.9.0-b0 (2024-05-06)
