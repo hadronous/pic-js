@@ -1,3 +1,9 @@
+## Unreleased
+
+### Feat
+
+- add support for mocking https outcalls
+
 ## 0.10.0-b0 (2024-10-07)
 
 ### Feat
