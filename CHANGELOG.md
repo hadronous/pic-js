@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Feat
+
+- update dependencies
+
 ## 0.10.0 (2024-11-27)
 
 ### Feat
